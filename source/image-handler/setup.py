@@ -1,7 +1,10 @@
 # coding: utf-8
 
 from setuptools import setup, find_packages
-from pip.req import parse_requirements
+try: # for pip >= 10
+    from pip._internal.req import parse_requirements
+except ImportError: # for pip <= 9.0.3
+    from pip.req import parse_requirements
 
 tests_require = [
     'mock',
@@ -23,12 +26,15 @@ setup(
             '': ['*.conf'],
     },
     install_requires=[
-        'botocore==1.3.7',
-        'tornado_botocore==1.0.2',
+        'botocore==1.8',
+        'tornado_botocore==0',
         'requests_unixsocket>=0.1.5',
         'thumbor>=6.2.1',
         'tc_aws==6.0.3',
         'opencv-python==3.2.0.6'
+    ],
+    dependency_links=[
+        'git+https://github.com/timshingyu/tornado-botocore.git@master#egg=tornado-botocore-0'
     ],
     extras_require={
             'tests': tests_require,

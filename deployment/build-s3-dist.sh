@@ -75,7 +75,7 @@ virtualenv "$env_dir"
 VIRTUAL_ENV_DISABLE_PROMPT=true source "$env_dir/bin/activate"
 pkg_dir="$VIRTUAL_ENV/lib/python2.7/site-packages/"
 
-pip install "$src_dir/image-handler/." --target="$pkg_dir"
+pip install "$src_dir/image-handler/." --target="$pkg_dir" --process-dependency-links
 pip install -r "$src_dir/image-handler/requirements.txt" --target="$pkg_dir"
 
 (
