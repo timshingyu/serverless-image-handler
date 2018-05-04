@@ -27,15 +27,13 @@ setup(
     },
     install_requires=[
         'botocore==1.8',
-        'tornado_botocore==0',
+        'tornado_botocore==1.3.2',
         'requests_unixsocket>=0.1.5',
         'thumbor>=6.4.2',
-        'tc_aws==6.0.3',
+        'tc_aws==6.2.7',
         'opencv-python==3.2.0.6'
     ],
-    dependency_links=[
-        'git+https://github.com/timshingyu/tornado-botocore.git@master#egg=tornado-botocore-0'
-    ],
+    dependency_links=['git+https://github.com/timshingyu/tornado-botocore.git#egg=tornado-botocore-1.3.2'],
     extras_require={
             'tests': tests_require,
         },
